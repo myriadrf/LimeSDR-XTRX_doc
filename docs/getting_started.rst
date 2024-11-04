@@ -1,7 +1,7 @@
 Getting Started
 ===============
 
-This guide will walk you through setting up your LimeSDR XTRX board with the required hardware and software, including LimeSuiteNG and GNU Radio Companion. LimeSuiteNG will be used to perform a basic setup and verify the board connection, and a simple FM receiver example in GNU Radio will be covered. For more detailed information, please refer to the LimeSuite and GNU Radio documentation.
+This guide will walk you through setting up your LimeSDR XTRX board with the required hardware and software, including LimeSuiteNG and GNU Radio Companion. LimeSuiteNG will be used to perform a basic setup and verify the board connection, and a simple FM receiver example in GNU Radio will be covered. For more detailed information, please refer to the LimeSuiteNG and GNU Radio documentation.
 
 Requirements
 ------------
