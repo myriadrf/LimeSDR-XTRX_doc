@@ -1,7 +1,7 @@
 Getting Started
 ===============
 
-This guide will walk you through setting up your LimeSDR XTRX board with the necessary hardware and software. 
+This guide will walk you through setting up your LimeSDR XTRX board with the required hardware and software, including LimeSuiteNG and GNU Radio Companion. LimeSuiteNG will be used to perform a basic setup and verify the board connection, and a simple FM receiver example in GNU Radio will be covered. For more detailed information, please refer to the LimeSuite and GNU Radio documentation.
 
 Requirements
 ------------
@@ -12,20 +12,26 @@ Requirements
 Step 1: Preparing the Hardware
 ------------------------------
 
-1. **Prepare the mPCIe Card:**  
-   Insert the mPCIe card into the adapter (if using one) and ensure it’s securely connected to the PC's mPCIe slot.
+1. **Prepare the mPCIe Card:** Insert the mPCIe card into the adapter (if using one) and ensure it’s securely connected to the PC's mPCIe slot.
+
+2. **Connect antenna:** For FM Receiver example a suitable FM antena should be connected to X2 U.FL connector.
 
 Step 2: Preparing the Software
 ------------------------------
 
-Build and install the LimeSuiteNG software by following the installation steps to support board configuration and control.
+Build and install the LimeSuiteNG software by following the installation steps to support board configuration and control. If you want to try FM receiver example GNU Radio Companion has to be istalled before LimeSuiteNG.
 
-**1. Clone LimeSuiteNG source code:**
+**1. Install GNU Radio Companion:**
+ .. code-block:: bash
+ 
+ 	sudo apt-get install gnuradio
+
+**2. Clone LimeSuiteNG source code:**
  .. code-block:: bash
  
  	git clone https://github.com/myriadrf/LimeSuiteNG.git
  	
-**2. Build and install LimeSuiteNG on Linux:**
+**3. Build and install LimeSuiteNG on Linux:**
 
  .. code-block:: bash
  
@@ -36,7 +42,7 @@ Build and install the LimeSuiteNG software by following the installation steps t
 	sudo make install
 	sudo ldconfig
  	
-Steps above should be enough to build and install LimeSuiteNG on Linux host, for complete documentation visit `https://limesuiteng.myriadrf.org <https://limesuiteng.myriadrf.org/gettingstarted/>`__ .
+Steps above should be enough to build and install LimeSuiteNG on Linux host, for complete documentation visit `https://limesuiteng.myriadrf.org <https://limesuiteng.myriadrf.org/gettingstarted/>`__ . For GNU Radio Companion visit `https://www.gnuradio.org/ <https://www.gnuradio.org/>`__ .
 
 Step 3: Launching LimeSuiteNG GUI and Exploring Capabilities
 ------------------------------------------------------------
@@ -83,7 +89,7 @@ LimSuiteNG GUI software can be used to explore LMS7002M capabilities because it 
 
 		Figure 4. RXTSP settings. 
 
-	Open Modules->fftviewer modify settings as shown in figure below and click "START" button to view test signal.
+	Open Modules->fftviewer modify settings as shown in figure below and click "START/STOP" button to view test signal.
 
 	.. figure:: images/limesuiteng_fftviewer.png
 		:align: center	
@@ -91,4 +97,19 @@ LimSuiteNG GUI software can be used to explore LMS7002M capabilities because it 
 		Figure 5. FFT Viewer. 
 
 
+Step 4: FM Receiver Example
+---------------------------
+
+	Launch GNU Radio Companion and open FM_receiver.grc example from LimeSuiteNG/plugins/gr-limesdr/examples directory. Click "Execute the flow graph" button. 
 	
+	.. figure:: images/gnu_radio_fm_receiver.png
+		:align: center
+		
+		Figure 6. FM Receiver example on GNU Radio Companion.
+	
+	In FM Receiver window (Figure 7) change "RX baseband" frequency to avalable FM station in your area and select L for "LNA Path". You should be able to hear demodulated FM radio signal from your host audio output. 
+
+	.. figure:: images/gnu_radio_fm_receiver_window.png
+		:align: center
+		
+		Figure 7. FM Receiver window.
